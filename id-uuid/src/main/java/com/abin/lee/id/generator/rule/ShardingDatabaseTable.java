@@ -12,25 +12,50 @@ import java.util.List;
  */
 public class ShardingDatabaseTable {
 
+    public static void main(String[] args) {
+        ShardingDatabaseTable shardingData = new ShardingDatabaseTable();
+        int baseDababase2 = 4;
+        int baseTable2 = 2;
+        shardingData.shardingDatabaseTableTwo(baseDababase2,baseTable2 );
+        int baseDababase4 = 4;
+        int baseTable4 = 4;
+//        shardingData.shardingDatabaseTableFour(baseDababase4, baseTable4);
+    }
 
-    @Test
-    public void test(){
+    public void shardingDatabaseTableTwo(int baseDababase, int baseTable){
+        System.out.println("-----------baseDababase="+baseDababase+"  ,baseTable="+baseTable+"  ---------------------------------------------");
         List<Integer> list = Lists.newArrayList();
-        for (int i = 0; i <5 ; i++) {
+        for (int i = 0; i <16 ; i++) {
             list.add(i);
         }
-        int baseTwo = 2;
         for (int temp : list) {
-            Integer result = temp % baseTwo;
-            System.out.println("baseTwo-----temp=" + temp + " ,result="+result);
+            Integer resultDatabase = temp % baseDababase;
+//            System.out.println("baseDababase-----temp=" + temp + " ,resultDatabase="+resultDatabase);
+            Integer resultTable = (temp / baseDababase) & (baseTable - 1);
+//            Integer resultTable = (temp / baseDababase) % baseTable ;
+            System.out.println("baseFour-----temp==" + temp + " ,resultDatabase="+resultDatabase + " ,resultTable="+resultTable);
         }
-        System.out.println("--------------------------------------------------------");
-        int baseFour = 4;
-        for (int temp : list) {
-            Integer result = temp % baseFour;
-            System.out.println("baseFour-----temp==" + temp + " ,result="+result);
-        }
+        System.out.println("-----------baseDababase="+baseDababase+"  ,baseTable="+baseTable+"  ---------------------------------------------");
     }
+
+
+    public void shardingDatabaseTableFour(int baseDababase, int baseTable){
+
+        System.out.println("-----------baseDababase="+baseDababase+"  ,baseTable="+baseTable+"  ---------------------------------------------");
+        List<Integer> list = Lists.newArrayList();
+        for (int i = 0; i <16 ; i++) {
+            list.add(i);
+        }
+        for (int temp : list) {
+            Integer resultDatabase = temp % baseDababase;
+//            System.out.println("baseDababase-----temp=" + temp + " ,resultDatabase="+resultDatabase);
+            Integer resultTable = (temp / baseDababase) & (baseTable - 1);
+//            Integer resultTable = (temp / baseDababase) % baseTable ;
+            System.out.println("baseFour-----temp==" + temp + " ,resultDatabase="+resultDatabase + " ,resultTable="+resultTable);
+        }
+        System.out.println("-----------baseDababase="+baseDababase+"  ,baseTable="+baseTable+"  ---------------------------------------------");
+    }
+
 
 
 
