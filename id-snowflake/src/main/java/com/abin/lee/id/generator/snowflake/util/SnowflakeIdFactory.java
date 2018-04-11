@@ -1,4 +1,4 @@
-package com.abin.lee.id.generator.snowflake;
+package com.abin.lee.id.generator.snowflake.util;
 
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;

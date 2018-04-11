@@ -1,4 +1,4 @@
-package com.abin.lee.id.generator.snowflake;
+package com.abin.lee.id.generator.snowflake.util;
 
 /**
  * Created by abin on 2018/2/25 22:14.
