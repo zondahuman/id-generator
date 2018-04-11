@@ -1,6 +1,6 @@
 package com.abin.lee.id.generator.snowflake.test;
 
-import com.abin.lee.id.generator.snowflake.decode.DecodeIfUtil;
+import com.abin.lee.id.generator.snowflake.decode.DecodeIdUtil;
 import com.abin.lee.id.generator.snowflake.util.SnowflakeIdWorker;
 import com.alibaba.druid.support.json.JSONUtils;
 
@@ -17,7 +17,7 @@ public class EncodeIdTest {
         System.out.println(Long.toBinaryString(id));
         System.out.println(id);
 
-        long[] result = DecodeIfUtil.decodeSnowFlakeIds(id);
+        long[] result = DecodeIdUtil.decodeSnowFlakeIds(id);
         System.out.println("result=" + JSONUtils.toJSONString(result));
     }
 
