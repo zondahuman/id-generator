@@ -110,7 +110,7 @@ public class SnowflakeIdWorker {
 
         //上次生成ID的时间截
         lastTimestamp = timestamp;
-
+        System.out.println("timestamp= " + timestamp + " ,datacenterId=" + datacenterId + " ,workerId=" + workerId + " ,sequence=" + sequence);
         //移位并通过或运算拼到一起组成64位的ID
         return ((timestamp - twepoch) << timestampLeftShift) //
                 | (datacenterId << datacenterIdShift) //
@@ -142,12 +142,14 @@ public class SnowflakeIdWorker {
     //==============================Test=============================================
     /** 测试 */
     public static void main(String[] args) {
-        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(5, 8);
         for (int i = 0; i < 1000; i++) {
             long id = idWorker.nextId();
             System.out.println(Long.toBinaryString(id));
             System.out.println(id);
         }
+
+
     }
 }
 
